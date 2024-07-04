@@ -32,7 +32,17 @@ namespace MyQueue {
 		}
 
 		void pop_front() {//First Out
-
+			if (!isEmpty()) {
+				if (head == tail) {
+					delete head;
+					head = tail = nullptr;
+				}
+				else {
+					head = head->next;
+					delete head->prev;
+					head->prev = nullptr;
+				}
+			}
 		}
 		void push_back(U value) {
 			Node<U>* el = new Node<U>(value);

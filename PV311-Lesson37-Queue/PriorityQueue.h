@@ -15,18 +15,18 @@ namespace MyQueue {
 			}
 			else {
 				if ( Queue<U>::head->info < el->info) {
-					el->next = head;
+					el->next = Queue<U>::head;
 					Queue<U>::head->prev = el;
 					Queue<U>::head = el;
 					return;
 				}
 
 				Node<U>* p2 = Queue<U>::head;
-				while (p2 != nullptr && el->info < p->info)	{
+				while (p2 != nullptr && el->info < p2->info)	{
 					p2 = p2->next;
 				}
 
-				if (p == nullptr) {
+				if (p2 == nullptr) {
 					Queue<U>::push_back(el->info);
 					return;
 				}

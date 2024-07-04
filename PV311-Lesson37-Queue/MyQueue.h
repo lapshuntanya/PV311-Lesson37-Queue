@@ -34,9 +34,18 @@ namespace MyQueue {
 		void pop_front() {//First Out
 
 		}
-		void push_back() {
+		void push_back(U value) {
+			Node<U>* el = new Node<U>(value);
 
+			if (isEmpty())
+				head = tail = el;
+			else {
+				tail->next = el;
+				el->prev = tail;
+				tail = el;
+			}
 		}
+
 		U first() const {// First element
 			if (isEmpty()) throw "Queue is empty.";
 
@@ -46,7 +55,7 @@ namespace MyQueue {
 			return head == nullptr || tail == nullptr;
 		}
 		void showInfo()const {
-			if (isEmpty())			{
+			if (isEmpty()){
 				cout << "Queue is empty.\n";
 				return;
 			}

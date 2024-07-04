@@ -46,7 +46,17 @@ namespace MyQueue {
 			return head == nullptr || tail == nullptr;
 		}
 		void showInfo()const {
+			if (isEmpty())			{
+				cout << "Queue is empty.\n";
+				return;
+			}
 
+			Node<U>* p = head;
+			while (p != nullptr) {
+				cout << p->info << " ";
+				p = p->next;
+			}
+			cout << endl;
 		}
 	};
 
